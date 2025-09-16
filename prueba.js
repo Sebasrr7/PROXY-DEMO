@@ -1,8 +1,9 @@
-// prueba.js
+// librerias utilizadas
 const express = require("express");
 const morgan = require("morgan");
 
 const app = express();
+//puerto localhost utilizado 
 const PORT = 3000;
 
 // Middleware para logs
@@ -23,7 +24,7 @@ app.get("/proxy", (req, res) => {
   const ipCliente = generarIpCliente();     // Simulamos la IP real
   const ipProxy = "192.168.100.1";          // IP fija del proxy
 
-  console.log(`🌐 Cliente con IP real ${ipCliente} fue redirigido por Proxy con IP ${ipProxy}`);
+  console.log(`Cliente con IP real ${ipCliente} fue redirigido por Proxy con IP ${ipProxy}`);
 
   // Redirigir al servidor final
   res.redirect("/servidor");
@@ -31,6 +32,6 @@ app.get("/proxy", (req, res) => {
 
 // Iniciar servidor
 app.listen(PORT, () => {
-  console.log(`🚀 Servidor Proxy corriendo en http://localhost:${PORT}`);
+  console.log(`Servidor Proxy corriendo en http://localhost:${PORT}`);
 });
 
