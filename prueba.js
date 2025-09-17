@@ -21,8 +21,8 @@ app.get("/servidor", (req, res) => {
 
 // Proxy
 app.get("/proxy", (req, res) => {
-  const ipCliente = generarIpCliente();     // Simulamos la IP real
-  const ipProxy = "192.168.100.1";          // IP fija del proxy
+  const ipCliente = generarIpCliente();  // Simulamos la IP real
+  const ipProxy = "192.168.100.1";  // IP fija del proxy
 
   console.log(`Cliente con IP real ${ipCliente} fue redirigido por Proxy con IP ${ipProxy}`);
 

@@ -1,0 +1,12 @@
+
+@startuml
+actor Cliente
+participant Proxy as "Servidor Proxy (Express)"
+participant "API Externa\njsonplaceholder" as API
+
+Cliente -> Proxy : GET /api/posts
+Proxy -> API : GET /posts
+API --> Proxy : Respuesta JSON (posts)
+Proxy --> Cliente : Respuesta JSON (posts)
+@enduml
+

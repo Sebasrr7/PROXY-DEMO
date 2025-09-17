@@ -25,7 +25,12 @@ app.get('/', (req, res) => {
 app.use('/api', createProxyMiddleware({
   target: 'https://jsonplaceholder.typicode.com',
   changeOrigin: true,
-  pathRewrite: { '^/api': '' } // Quita /api antes de enviar
+  pathRewrite: { '^/api': '' }, // Quita /api antes de enviar
+  onProxyReq: (proxyReq, req, res) => {
+    console.log("➡️ Proxy está reenviando la petición...");
+    console.log(`   Cliente: ${req.ip}`);
+    console.log(`   Proxy -> Servidor externo: IP será la de este servidor Node.js`);
+  }
 }));
 
 // Iniciar servidor
